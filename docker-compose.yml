@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  server:
+    build:
+      context: .
+    ports:
+      - 3000:3000
+    networks:
+      - public
+    volumes:
+      - ./:/app
+      - servernodemodules:/app/node_modules
+    container_name: runner_server
+
+networks:
+  public:
+    driver: bridge
+
+volumes:
+  servernodemodules: {}
